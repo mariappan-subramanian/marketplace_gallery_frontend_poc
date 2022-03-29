@@ -1,6 +1,12 @@
 # gallery_frontend_v2_poc
 
-This template should help get you started developing with Vue 3 in Vite.
+* Used composition API 
+* Pinia for state management 
+* Using Crayons 
+* Vite based setup 
+* I18n integrated 
+* Axios for API calls
+* Gulp task for generating strings working good
 
 ## Recommended IDE Setup
 
