@@ -1,4 +1,15 @@
 <template>
+<router-link class="card" :class="{ website: isWebsite }"
+    tag="a"
+    :to="{
+      name: 'collection_route',
+      params: {
+        product: this.productName,
+        collectionName: this.collectionName,
+        collectionId: this.collectionId
+      }
+    }"
+    >
     <div class="wrapper" @click="trackEvents">
       <img :src="image.thumb"
         alt="collection banner image"
@@ -9,6 +20,7 @@
         <div class="description line-clamp two">{{description}}</div>
       </div>
     </div>
+    </router-link>
 </template>
 
 <script>

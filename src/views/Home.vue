@@ -1,6 +1,5 @@
 <template>
   <main>
-    <h2 v-if="store.collections.length > 0">Home</h2>
     <CollectionPanel
       v-if="store.collections.length > 0"
       :collections="store.collections"
