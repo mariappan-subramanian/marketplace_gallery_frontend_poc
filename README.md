@@ -9,7 +9,10 @@
 * Gulp task for generating strings working good
 
 ## Screenshot 
-<img src="./screenshots/home.png" />
+<div style="display: flex">
+<img src="./screenshots/home.png" width="300" />
+<img src="./screenshots/test.png" width="300" />
+</div>
 
 ## Recommended IDE Setup
 
