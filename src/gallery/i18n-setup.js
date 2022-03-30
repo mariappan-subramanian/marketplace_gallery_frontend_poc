@@ -6,6 +6,8 @@ const DEFAULT_LOCALE = 'en';
 const i18n = createI18n({
   locale: DEFAULT_LOCALE,
   fallbackLocale: DEFAULT_LOCALE,
+  legacy: false,
+  globalInjection: true,
   silentFallbackWarn: true, // LEGACY API - to remove after confirmation
   messages: {
     en: defaultMessages,
