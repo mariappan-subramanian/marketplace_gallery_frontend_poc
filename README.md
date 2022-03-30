@@ -1,8 +1,8 @@
 # gallery_frontend_v2_poc
 
-* Used composition API 
+* All components and views are using composition API's - script setup syntax 
 * Pinia for state management 
-* Using Crayons 
+* Using Crayons components
 * Vite based setup 
 * I18n integrated 
 * Axios for API calls
