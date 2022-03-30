@@ -1,3 +1,13 @@
+<script setup>
+import { onMounted } from "vue";
+import { useGalleryStore } from "../stores/store";
+
+const store = useGalleryStore();
+
+onMounted(() => {
+  store.loadCollections();
+});
+</script>
 <template>
   <div class="grid-layout">
     <fw-spinner size="large" color="blue" v-if="!store.isDataFetched"></fw-spinner>
@@ -10,24 +20,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import { useGalleryStore } from "../stores/store";
-import { onMounted } from 'vue'
-
-export default {
-  setup() {
-    const store = useGalleryStore();
-    onMounted(() => {
-      store.loadCollections()
-    })
-    return {
-      // you can return the whole store instance to use it in the template
-      store,
-    };
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 .sidebar {

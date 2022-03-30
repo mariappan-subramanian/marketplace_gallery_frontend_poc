@@ -1,54 +1,43 @@
+<script setup>
+const props = defineProps({
+  title: String,
+  description: String,
+  image: Object,
+  productName: String,
+  collectionName: String,
+  collectionId: Number,
+  isWebsite: Boolean,
+  displayName: String,
+});
+</script>
 <template>
-<router-link class="card" :class="{ website: isWebsite }"
+  <router-link
+    class="card"
+    :class="{ website: isWebsite }"
     tag="a"
     :to="{
       name: 'collection_route',
       params: {
         product: this.productName,
         collectionName: this.collectionName,
-        collectionId: this.collectionId
-      }
+        collectionId: this.collectionId,
+      },
     }"
-    >
+  >
     <div class="wrapper" @click="trackEvents">
-      <img :src="image.thumb"
+      <img
+        :src="image.thumb"
         alt="collection banner image"
         :srcset="`${image.thumb} 1x,
-                  ${image.thumb2x} 2x`">
+                  ${image.thumb2x} 2x`"
+      />
       <div class="details">
-        <div class="title line-clamp one">{{title}}</div>
-        <div class="description line-clamp two">{{description}}</div>
+        <div class="title line-clamp one">{{ title }}</div>
+        <div class="description line-clamp two">{{ description }}</div>
       </div>
     </div>
-    </router-link>
+  </router-link>
 </template>
-
-<script>
-export default {
-  props: {
-    title: String,
-    description: String,
-    image: Object,
-    productName: String,
-    collectionName: String,
-    collectionId: Number,
-    isWebsite: Boolean,
-    displayName: String,
-  },
-
-  methods: {
-    trackEvents() {
-    if (!this.isWebsite) {
-          this.$emit('heap-event', {
-            id: this.collectionId,
-            displayName: this.displayName,
-            name: this.collectionName,
-        });
-      }
-    },
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 .card {
@@ -82,7 +71,7 @@ export default {
     }
     .description {
       font-size: 0.75rem;
-      color: #6F7C87;
+      color: #6f7c87;
       overflow: hidden;
       line-height: 1rem;
       max-height: 1.95rem;

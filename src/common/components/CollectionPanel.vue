@@ -1,58 +1,45 @@
+<script setup>
+import CollectionCard from "./CollectionCard.vue";
+import { useGalleryStore } from "../../gallery/stores/store";
+import { reactive, computed } from "vue";
+
+const props = defineProps({
+  collections: Array,
+  initialOffset: Number,
+  loadmoreOffset: Number,
+});
+
+const state = reactive({ limit: props.initialOffset });
+const store = useGalleryStore();
+const filteredCollections = computed(() => store.collections.slice(0, state.limit));
+</script>
 <template>
   <div class="container">
     <div class="title">
-      {{ $t('texts.collections') }}
+      {{ $t("texts.collections") }}
       <span class="see-all" v-if="showViewMore" @click="handleViewMore">
-        {{ $t('texts.view_more') }}
+        {{ $t("texts.view_more") }}
       </span>
     </div>
     <!-- <div class="description">
       We’ve picked popular and useful apps to get you off to a running start
     </div> -->
     <div class="panel">
-    <CollectionCard
-        v-for = "collection of filteredCollections"
-        :key = "collection.id"
-        :description = "collection.summary"
-        :title= "collection.display_name"
-        :image= "collection.cover_image"
-        :product-name= "product"
-        :collection-name= "collection.name"
-        :collection-id = "collection.id"
-        :is-website= "isWebsite"
-        :display-name= "collection.display_name"
+      <CollectionCard
+        v-for="collection of filteredCollections"
+        :key="collection.id"
+        :description="collection.summary"
+        :title="collection.display_name"
+        :image="collection.cover_image"
+        :product-name="product"
+        :collection-name="collection.name"
+        :collection-id="collection.id"
+        :is-website="isWebsite"
+        :display-name="collection.display_name"
       />
     </div>
-  
   </div>
 </template>
-
-<script>
-import CollectionCard from './CollectionCard.vue'
-import {useGalleryStore} from '../../gallery/stores/store'
-import { reactive, computed } from 'vue'
-
-export default {
-  props: {
-    collections: Array,
-    initialOffset: Number,
-    loadmoreOffset: Number,
-  },
-  setup(props) {
-    const state = reactive({ limit: props.initialOffset })
-    const store = useGalleryStore();
-    const filteredCollections = computed(() => store.collections.slice(0, state.limit))
-    return {
-      // you can return the whole store instance to use it in the template
-      filteredCollections,
-      store,
-    };
-  },
-  components: {
-    CollectionCard
-  }
-};
-</script>
 
 <style lang="scss" scoped>
 .panel {
@@ -80,7 +67,7 @@ export default {
     line-height: 1.4;
     color: #0b1320;
   }
-  .see-all{
+  .see-all {
     color: #666666;
     font-size: 0.8125rem;
     text-decoration: none;
@@ -110,11 +97,13 @@ export default {
   color: #006699;
   font-size: 0.8125rem;
   height: 30px;
-  min-width:100px;
+  min-width: 100px;
   border: solid 1px #efefef;
   line-height: 0.5rem;
   margin: 0 auto;
-  &:hover, &:focus, &:active {
+  &:hover,
+  &:focus,
+  &:active {
     color: #275dc7;
     background-color: var(--sidebar-hover-background, #eaf3fb);
     border: none;

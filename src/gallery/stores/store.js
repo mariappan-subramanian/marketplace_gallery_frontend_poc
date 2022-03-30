@@ -60,6 +60,7 @@ const getDomain = (accountDomain = '') => {
 };
 
 export const useGalleryStore = defineStore('gallery', {
+    id: 'gallery',
     state: () => initData,
     getters: {
         isProductAuth: (state) => (state.session.authType === 'productAuth'),

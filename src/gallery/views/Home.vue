@@ -1,3 +1,9 @@
+<script setup>
+import { useGalleryStore } from "../stores/store";
+import CollectionPanel from "../../common/components/CollectionPanel.vue";
+
+const store = useGalleryStore();
+</script>
 <template>
   <main>
     <CollectionPanel
@@ -8,20 +14,3 @@
     />
   </main>
 </template>
-
-<script>
-import { useGalleryStore } from "../stores/store";
-import CollectionPanel from "../../common/components/CollectionPanel.vue";
-export default {
-  setup() {
-    const store = useGalleryStore();
-    return {
-      // you can return the whole store instance to use it in the template
-      store,
-    };
-  },
-  components: {
-    CollectionPanel
-  }
-};
-</script>
