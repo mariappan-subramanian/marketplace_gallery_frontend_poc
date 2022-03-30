@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { useGalleryStore } from "@/stores/store";
+import { useGalleryStore } from "../stores/store";
 import { onMounted } from 'vue'
 
 export default {

@@ -1,5 +1,4 @@
 <script setup>
-import UserList from "./components/UserList.vue";
 import { NO_COMMON_HEADER_ROUTES } from "./constants";
 import { reactive, computed } from "vue";
 import { useGalleryStore } from "./stores/store";

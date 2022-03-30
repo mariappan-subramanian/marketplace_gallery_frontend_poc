@@ -29,7 +29,7 @@
 
 <script>
 import CollectionCard from './CollectionCard.vue'
-import { useGalleryStore } from "@/stores/store";
+import {useGalleryStore} from '../../gallery/stores/store'
 import { reactive, computed } from 'vue'
 
 export default {

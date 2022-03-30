@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import { useGalleryStore } from "@/stores/store";
-import CollectionPanel from "../common/components/CollectionPanel.vue";
+import { useGalleryStore } from "../stores/store";
+import CollectionPanel from "../../common/components/CollectionPanel.vue";
 export default {
   setup() {
     const store = useGalleryStore();
