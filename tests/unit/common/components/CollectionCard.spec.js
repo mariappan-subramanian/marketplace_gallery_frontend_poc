@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
-import CollectionCard from '../../../../src/common/components/CollectionCard.vue';
+import CollectionCard from '@common/components/CollectionCard.vue';
 import { createRouter, createWebHistory } from 'vue-router'
-import { collectionCardProps } from '../mock-data';
+import { collectionCardProps } from '@common/mock-data';
 import { enableAutoUnmount } from '@vue/test-utils'
 
 describe('CollectionCard.vue', () => {

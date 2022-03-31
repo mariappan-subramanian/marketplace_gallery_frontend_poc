@@ -1,0 +1,74 @@
+/*  Toggle CSS */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 20px;
+  margin-bottom: 0px;
+  input {
+    display: none;
+  }
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 32px;
+  height: 20px;
+  background-color: #ccc;
+  transition: .2s;
+
+  .tick {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #fff;
+    -webkit-transition: .2s;
+    transition: .2s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    background-position: 4px 4px;
+    background-repeat: no-repeat;
+  }
+}
+
+input:checked+.slider {
+  background-color: var(--color-primary, #3973e6);
+}
+
+input:disabled+.slider {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px var(--color-primary, #3973e6);
+}
+
+input:checked+.slider .tick {
+  transform: translateX(11px);
+}
+
+input:checked+.slider .tick::before {
+  content: '';
+  mask: url('~common/assets/icons/tick.svg') no-repeat 100% 100%;
+  background-color: var(--color-primary, #3973e6);
+  width: 12px;
+  height: 11px;
+  position: absolute;
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round .tick {
+  border-radius: 50%;
+}

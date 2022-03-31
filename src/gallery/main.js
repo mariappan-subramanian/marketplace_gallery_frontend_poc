@@ -4,6 +4,7 @@ import { createStore } from './stores/store'
 import DataService from './api/DataService'
 import router from './router'
 import { i18n } from './i18n-setup'
+import '@gallery/styles/style.scss';
 
 DataService.getSession().then(sessionData => {
     const app = createApp(App)

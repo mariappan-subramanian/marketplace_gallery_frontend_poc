@@ -1,5 +1,5 @@
-import * as en from '../../src/common/locales/en.json';
-import * as fr from '../../src/common/locales/fr.json';
+import * as en from '@common/locales/en.json';
+import * as fr from '@common/locales/fr.json';
 
 export const allAppsData = [{
   id: 197, name: 'zapier_fsales', display_name: 'Zapier', description: 'Make your own Zap to connect Freshsales with the other apps you use.', overview: 'Make your own Zap to connect Freshsales with the other apps you use.', cover_art: { thumb: 'https://dej20ntrln9u1.cloudfront.net/images/test_data/791/live_cover_art/thumb/zapier.png', thumb2x: 'https://dej20ntrln9u1.cloudfront.net/images/test_data/791/live_cover_art/thumb2x/zapier.png' }, categories: ['Bot'], type: 5, install_count: 0, published_at: '2018-01-24T23:31:06.000+05:30', options: { redirect_url: 'https://zapier.com/zapbook/freshsales/' },

@@ -4,8 +4,16 @@ import { useGalleryStore } from "../stores/store";
 
 const store = useGalleryStore();
 
+const loadInitialData = async () => {
+  if (store.allApps.length === 0) {
+    await store.loadApps();
+  }
+  await store.loadCollections();
+  await store.loadTrendingApps();
+};
+
 onMounted(() => {
-  store.loadCollections();
+  loadInitialData();
 });
 </script>
 <template>

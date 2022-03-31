@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-const GalleryGrid = () => import('../views/GalleryGrid.vue');
-const Collection = () => import('../views/Collection.vue');
+import Home from '@gallery/views/Home.vue'
+const GalleryGrid = () => import('@gallery/views/GalleryGrid.vue');
+const Collection = () => import('@gallery/views/Collection.vue');
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [

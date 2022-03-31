@@ -1,5 +1,5 @@
 import { createI18n } from 'vue-i18n'
-import defaultMessages from '../common/locales/en.json';
+import defaultMessages from '@common/locales/en.json';
 
 const DEFAULT_LOCALE = 'en';
 

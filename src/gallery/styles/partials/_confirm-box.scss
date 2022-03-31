@@ -1,0 +1,31 @@
+.el-message-box__wrapper {
+  &:after {
+    vertical-align: top;
+  }
+  .message-box {
+    width: 550px;
+    border-radius: 0 0 5px 5px;
+    background-color: #F9F9F9;
+    box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.1);
+    .el-message-box__header {
+      padding: 35px;
+      padding-bottom: 10px;
+      color: #183247;
+      font-size: 0.875rem;
+      font-weight: 600;
+      background-color: #ffff;
+    }
+    .el-message-box__content {
+      padding: 0px 35px 20px 35px;
+      color: #183247;
+      font-size: 0.825rem;
+      background-color: #ffff;
+    }
+    .el-message-box__btns {
+      height: 62px;
+      padding: 16px 36px 0;
+      box-sizing: border-box;
+      border-top: 1px solid #0000001a;
+    }
+  }
+}

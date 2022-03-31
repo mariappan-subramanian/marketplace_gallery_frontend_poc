@@ -1,5 +1,5 @@
 import { createPinia, defineStore } from 'pinia'
-import DataService from '../api/DataService'
+import DataService from '@gallery/api/DataService'
 
 let initData = null
 
@@ -63,6 +63,20 @@ export const useGalleryStore = defineStore('gallery', {
     id: 'gallery',
     state: () => initData,
     getters: {
+        isFreshWorksVerified({ type, short_description }) {
+            // Note: for the temporary removal of freshworks badge used short_description.
+            return (short_description !== 'hackathon-covid-19') && (type === 1 || type === 4);
+        },
+        popularApps: (state) => {
+            const apps = state.allApps.slice();
+            apps.sort((a, b) => b.install_count - a.install_count);
+            return apps;
+        },
+        latestApps: (state) => {
+            const apps = state.allApps.slice();
+            apps.sort((a, b) => (new Date(b.published_at)) - (new Date(a.published_at)));
+            return apps;
+        },
         isProductAuth: (state) => (state.session.authType === 'productAuth'),
         // eslint-disable-next-line object-curly-newline
         devportalURL: (state, isProductAuth) => {
@@ -117,6 +131,15 @@ export const useGalleryStore = defineStore('gallery', {
         setCollections(payload) {
             this.collections = payload;
         },
+        setApps(payload) {
+            this.allApps = payload;
+        },
+        setTrendingApps(payload) {
+            this.trendingApps = payload;
+        },
+        setUpcomingApps(payload) {
+            this.upcomingApps = payload;
+        },
         dataFetchComplete() {
             this.isDataFetched = true;
         },
@@ -125,6 +148,27 @@ export const useGalleryStore = defineStore('gallery', {
             this.resetDataFetchFlag(state)
             const response = await DataService.getCollections();
             this.setCollections(response)
+            this.dataFetchComplete()
+            return response;
+        },
+        async loadApps(state) {
+            this.resetDataFetchFlag(state)
+            const response = await DataService.getApps();
+            this.setApps(response.extensions)
+            this.dataFetchComplete()
+            return response;
+        },
+        async loadTrendingApps(state) {
+            this.resetDataFetchFlag(state)
+            const response = await DataService.getTrendingApps();
+            this.setTrendingApps(response)
+            this.dataFetchComplete()
+            return response;
+        },
+        async loadUpcomingApps(state) {
+            this.resetDataFetchFlag(state)
+            const response = await DataService.getUpcomingApps();
+            this.setUpcomingApps(response)
             this.dataFetchComplete()
             return response;
         },

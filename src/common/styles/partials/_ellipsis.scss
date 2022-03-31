@@ -1,0 +1,44 @@
+/* line-clamp */
+.line-clamp {
+  position: relative;
+  &.one {
+    height: 1.2rem;
+  }
+  &.two {
+    height: 2.4rem;
+  }
+  &.four {
+    height: 4.8rem;
+  }
+}
+.line-clamp:after {
+  content: "";
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20%;
+  height: 1.2rem;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+ }
+
+@supports (-webkit-line-clamp: 3) {
+  .line-clamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;  
+    max-height:3.6rem;
+    height: auto;
+    &.one {
+      -webkit-line-clamp: 1;
+    }
+    &.two {
+      -webkit-line-clamp: 2;
+    }
+    &.four {
+      -webkit-line-clamp: 4;
+    }
+  }
+  .line-clamp:after {
+      display: none;
+  }
+}

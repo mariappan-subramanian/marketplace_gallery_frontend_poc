@@ -8,6 +8,14 @@ const headers = {
     "accept-language": "en-GB,en-US;q=0.9,en;q=0.8",
 }
 
+const addIdInAppList = (data) => {
+    const appInfo = { ...data };
+    if (appInfo.apps) {
+      appInfo.apps = appInfo.apps.map((app) => ({ id: app.extension_id, ...app }));
+    }
+    return appInfo;
+}
+
 const DataService = {
     getSession() {
         return axios.get(`${baseUrl}/session`, {
@@ -21,6 +29,18 @@ const DataService = {
     async getCollections() {
         return axios.get(`${baseUrl}/apps/collections`, { withCredentials: true, headers })
             .then((res) => res.data);
+    },
+    async getApps() {
+        return axios.get(`${baseUrl}/apps/extensions`, { withCredentials: true, headers })
+          .then((res) => res.data);
+    },
+    async getTrendingApps() {
+        return axios.get(`${baseUrl}/apps/trending`, { withCredentials: true, headers })
+            .then(({ data }) => addIdInAppList(data));
+    },
+    async getUpcomingApps() {
+        return axios.get(`${baseUrl}/apps/upcoming`, { withCredentials: true, headers })
+          .then(({ data }) => addIdInAppList(data));
     },
 }
 

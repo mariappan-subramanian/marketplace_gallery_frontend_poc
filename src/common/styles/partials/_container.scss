@@ -1,0 +1,17 @@
+.mp-container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-bottom: 40px;
+  @media (min-width: 1040px) {
+    width: 980px;
+  }
+  @media (min-width: 1200px) {
+    width: 1150px;
+  }
+  input:focus {
+    outline: none;
+    border: 1px solid var(--color-primary, #3973e6);
+  }
+}
