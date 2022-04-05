@@ -7,6 +7,7 @@
 * I18n integrated 
 * Axios for API calls
 * Gulp task for generating strings working good
+* Typescript configured in composition API setup
 
 ## Screenshot 
 <div style="display: flex">
