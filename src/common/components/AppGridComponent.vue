@@ -94,7 +94,7 @@ onMounted(() => {
     </div>
     <button
       class="mp-btn seeAllBtn"
-      v-if="showViewMoreButton"
+      v-if="state.showViewMoreButton"
       @click="handleViewMoreButton"
     >
       {{ $t("texts.view_more") }}

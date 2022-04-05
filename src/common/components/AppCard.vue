@@ -1,33 +1,31 @@
-<script setup>
-import constants from "../constants";
-import { onMounted, reactive, computed } from "vue";
-const { PRODUCT_MAP } = constants;
+<script setup lang="ts">
+import { onMounted, reactive } from "vue";
 
-const props = defineProps({
-  appId: Number,
-  thumb: String,
-  thumb2x: String,
-  displayName: String,
-  appName: String,
-  collectionId: Number,
-  description: String,
-  pricing: Boolean,
-  type: Number,
-  categories: Array,
-  lastUpdated: String,
-  publishedBy: String,
-  options: Object,
-  isDisabled: Boolean,
-  productName: String,
-  showProduct: Boolean,
-  disablePopup: Boolean,
-  isFreshworksVerified: Boolean,
-  tacticId: Number,
-});
+const props = defineProps<{
+  appId: number,
+  thumb: string,
+  thumb2x: string,
+  displayName: string,
+  appName: string,
+  collectionId: number,
+  description: string,
+  pricing: boolean,
+  type: number,
+  categories: Array<any>,
+  lastUpdated: string,
+  publishedBy: string,
+  options: any,
+  isDisabled: boolean,
+  productName: any,
+  showProduct: boolean,
+  disablePopup: boolean,
+  isFreshworksVerified: boolean,
+  tacticId: number,
+}>()
 
 const state = reactive({
-  shareURL: "",
-  galleryDetailRouteParams: {},
+  shareURL: "" as string,
+  galleryDetailRouteParams: {} as any,
 });
 
 onMounted(() => {
@@ -39,8 +37,6 @@ onMounted(() => {
   }
 });
 
-const filteredCategories = computed(() => [...new Set(props.categories)]);
-const productDisplayName = computed(() => PRODUCT_MAP[props.productName].productName);
 </script>
 <template>
   <div>
@@ -50,7 +46,7 @@ const productDisplayName = computed(() => PRODUCT_MAP[props.productName].product
       :class="{ 'non-clickable': props.isDisabled }"
       to="/"
     >
-      <div @click="trackEvents" class="wrapper">
+      <div class="wrapper">
         <div class="app-icon">
           <img
             class="app-icon-img"

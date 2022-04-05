@@ -8,10 +8,10 @@ const headers = {
     "accept-language": "en-GB,en-US;q=0.9,en;q=0.8",
 }
 
-const addIdInAppList = (data) => {
+const addIdInAppList = (data: any) => {
     const appInfo = { ...data };
     if (appInfo.apps) {
-      appInfo.apps = appInfo.apps.map((app) => ({ id: app.extension_id, ...app }));
+        appInfo.apps = appInfo.apps.map((app: any) => ({ id: app.extension_id, ...app }));
     }
     return appInfo;
 }
@@ -32,7 +32,7 @@ const DataService = {
     },
     async getApps() {
         return axios.get(`${baseUrl}/apps/extensions`, { withCredentials: true, headers })
-          .then((res) => res.data);
+            .then((res) => res.data);
     },
     async getTrendingApps() {
         return axios.get(`${baseUrl}/apps/trending`, { withCredentials: true, headers })
@@ -40,7 +40,7 @@ const DataService = {
     },
     async getUpcomingApps() {
         return axios.get(`${baseUrl}/apps/upcoming`, { withCredentials: true, headers })
-          .then(({ data }) => addIdInAppList(data));
+            .then(({ data }) => addIdInAppList(data));
     },
 }
 
